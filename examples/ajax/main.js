@@ -38,9 +38,11 @@ require(['gremlins'], function(gremlins) {
     }, 1500);
 
     var ajaxDelayer = gremlins.species.ajaxDelayer().logger(console);
+    var ajaxDestroyer = gremlins.species.ajaxDestroyer().logger(console);
 
     gremlins.createHorde()
         .gremlin(ajaxDelayer())
+        .gremlin(ajaxDestroyer())
         .mogwai(null)
         .unleash();
 
