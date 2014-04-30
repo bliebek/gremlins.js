@@ -42,7 +42,7 @@ define(function(require) {
                                 }
 
                                 return setTimeout(function () {
-                                    rsc.apply(self, arguments)
+                                    rsc.apply(self)
                                 }, d);
                             }
                             return rsc.apply(this, arguments);
