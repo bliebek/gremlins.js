@@ -9,7 +9,6 @@ require.config({
 });
 
 require(['gremlins'], function(gremlins) {
-
     var requestEl = document.getElementById('request');
 
     setInterval(function() {
