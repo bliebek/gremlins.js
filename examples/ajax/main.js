@@ -27,6 +27,8 @@ require(['gremlins'], function(gremlins) {
                 var end = (new Date()).getTime();
                 if(req.status == 200) {
                     requestEl.innerHTML = '<p>request succeeded</p>';
+                } else if(req.status == 500) {
+                    requestEl.innerHTML = '<p>Internal servor error. Curse you gremlins!</p>';
                 } else {
                     requestEl.innerHTML = '<p>Error encountered while loading the page.</p>';
                 }
@@ -37,11 +39,11 @@ require(['gremlins'], function(gremlins) {
     }, 1500);
 
     var ajaxDelayer = gremlins.species.ajaxDelayer().logger(console);
-    var ajaxOverrider = gremlins.species.ajaxOverrider().logger(console);
+    var ajaxBreaker = gremlins.species.ajaxBreaker().logger(console);
 
     gremlins.createHorde()
         .gremlin(ajaxDelayer())
-        .gremlin(ajaxOverrider())
+        .gremlin(ajaxBreaker())
         .mogwai(null)
         .unleash();
 
